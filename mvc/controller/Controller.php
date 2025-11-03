@@ -59,7 +59,7 @@ class Controller {
         } elseif ($route === 'book' && isset($_GET['book'])) {
             $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
             if (!$user) { header("Location: index.php?route=login"); exit; }
-            $book = $this->model->getBook($_GET['book']);
+            $book = $this->model->getBookByTitle($_GET['book']);
             if ($book) include 'view/viewbook.php';
             else echo "Book not found.";
         } else {
